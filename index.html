@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 <div class="instart">
 
      <div class="udnam">
-        <h2>উদ্যোগ<br><span class="typing" style="color: rgb(248, 83, 12);"></span></h2>
+        <h2>উদ্যোগ(jbd)<br><span class="typing" style="color: rgb(248, 83, 12);"></span></h2>
         <script>
               
     const text = "একটি সামাজিক উন্নয়নমূলক সংগঠন ";
@@ -135,6 +135,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
       navigator.serviceWorker.register('./sw.js');
     });
   }
+    
+     document.getElementById('unregisterButton').addEventListener('click', function() {
+          navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for (let registration of registrations) {
+              registration.unregister();
+              console.log('Service worker unregistered:', registration);
+            }
+          });
+        });
+      });
+    } else {
+      console.log('Service workers are not supported.');
 </script>
      <div class="udop">
         <ul>
